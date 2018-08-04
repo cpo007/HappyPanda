@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GBm-4D-uOW">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Tmf-7w-drH">
+            <objects>
+                <navigationController id="GBm-4D-uOW" customClass="NavigationController" customModule="HappyPanda" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HdA-qB-Yd0">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Zbd-u7-hvF" kind="relationship" relationship="rootViewController" id="ba7-oV-svS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lDX-0I-hNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="712" y="135"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Zxe-d0-Buf">
+            <objects>
+                <tabBarController id="Zbd-u7-hvF" customClass="TabBarController" customModule="HappyPanda" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="MiD-Jp-ZEf"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="12B-Y8-gAi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="syD-vr-eeW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1506" y="117"/>
+        </scene>
+        <!--Trajectory Controller-->
+        <scene sceneID="ndE-AQ-x90">
+            <objects>
+                <viewController storyboardIdentifier="TrajectoryController" id="zre-oF-ox2" customClass="TrajectoryController" customModule="HappyPanda" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="USu-0e-qYr"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dgf-hT-CJJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OYl-Tt-QO3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BVQ-Rc-Ayw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2566" y="538"/>
+        </scene>
+        <!--Configuration Controller-->
+        <scene sceneID="fE7-l5-opB">
+            <objects>
+                <viewController storyboardIdentifier="ConfigurationController" id="qKJ-ad-aSs" customClass="ConfigurationController" customModule="HappyPanda" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1qR-f9-PJC"/>
+                        <viewControllerLayoutGuide type="bottom" id="kz1-zy-b85"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gdP-dY-bVl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4m-sJ-M9U">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="a4m-sJ-M9U" secondAttribute="trailing" id="A3W-NJ-vNQ"/>
+                            <constraint firstItem="a4m-sJ-M9U" firstAttribute="top" secondItem="gdP-dY-bVl" secondAttribute="top" id="seK-oX-IrP"/>
+                            <constraint firstItem="a4m-sJ-M9U" firstAttribute="leading" secondItem="gdP-dY-bVl" secondAttribute="leading" id="tox-2j-QyJ"/>
+                            <constraint firstAttribute="bottom" secondItem="a4m-sJ-M9U" secondAttribute="bottom" id="zsX-wW-PDV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="a4m-sJ-M9U" id="EXB-fI-As0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gDd-aZ-ETx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2533" y="1380"/>
+        </scene>
+        <!--Corridors Controller-->
+        <scene sceneID="nnv-C3-muw">
+            <objects>
+                <viewController storyboardIdentifier="CorridorsController" id="m2K-sK-x2o" customClass="CorridorsController" customModule="HappyPanda" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wRN-c5-zSW"/>
+                        <viewControllerLayoutGuide type="bottom" id="mWQ-w5-Xj3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="67u-vA-LhM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1bC-vV-Npl">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="m2K-sK-x2o" id="Tah-QW-KPf"/>
+                                    <outlet property="delegate" destination="m2K-sK-x2o" id="qmz-Xr-asc"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1bC-vV-Npl" firstAttribute="leading" secondItem="67u-vA-LhM" secondAttribute="leading" id="76J-vR-DqF"/>
+                            <constraint firstItem="1bC-vV-Npl" firstAttribute="top" secondItem="wRN-c5-zSW" secondAttribute="bottom" constant="44" id="7vC-Jh-Qqi"/>
+                            <constraint firstItem="mWQ-w5-Xj3" firstAttribute="top" secondItem="1bC-vV-Npl" secondAttribute="bottom" id="eLR-Nw-kcn"/>
+                            <constraint firstAttribute="trailing" secondItem="1bC-vV-Npl" secondAttribute="trailing" id="niZ-pF-bNC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="1bC-vV-Npl" id="pjF-6q-Jto"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dyt-L9-fHq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2567" y="-202"/>
+        </scene>
+        <!--Comic Detail Controller-->
+        <scene sceneID="LAU-Wk-vSZ">
+            <objects>
+                <viewController storyboardIdentifier="ComicDetailController" id="oxw-pG-Oo5" customClass="ComicDetailController" customModule="HappyPanda" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yMp-SL-9Uj"/>
+                        <viewControllerLayoutGuide type="bottom" id="5HS-aD-2WJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="blP-Gt-r9B">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VwU-9p-x9u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3752" y="-193"/>
+        </scene>
+    </scenes>
+</document>

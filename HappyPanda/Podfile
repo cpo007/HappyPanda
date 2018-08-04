@@ -1,0 +1,22 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'HappyPanda' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+  pod 'Kanna', '~> 4.0.0'
+  pod 'Kingfisher'
+  pod 'Alamofire', '~> 4.7'
+  pod 'R.swift'
+  pod 'ESTabBarController-swift'
+  pod 'SnapKit', '~> 4.0.0'
+  pod 'SwiftyJSON', '~> 4.1.0'
+  pod 'HandyJSON', '~> 4.1.1'
+  pod 'MJRefresh'
+  pod 'SVProgressHUD'
+  pod 'SDWebImage'
+  pod 'SwiftyDB'
+
+  # Pods for HappyPanda
+
+end
