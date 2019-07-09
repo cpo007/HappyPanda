@@ -20,12 +20,16 @@ public class HPNeetWorking {
     static let shareTools:HPNeetWorking = HPNeetWorking()
     //typealias EHNetworkwingCallBack = (_ response: Any?)->()
     
-     typealias APIHandler = ((Data)->())
+    typealias APIHandler = ((Data)->())
     typealias APIErrorHandler = ((Error?)->())
     
-    func requestHtml(method: HTTPMethod, urlString: String,completionHandler: @escaping APIHandler, errorHandler: @escaping APIErrorHandler) {
+    
+    
+    func requestHtml(method: HTTPMethod, urlString: String, parameters: [String:Any]? = nil ,completionHandler: @escaping APIHandler, errorHandler: @escaping APIErrorHandler) {
         
-        Alamofire.request(urlString, method: method, parameters: nil, encoding: JSONEncoding.default, headers: nil).response { (response) in
+        let _ = Alamofire.SessionManager.default
+        
+        Alamofire.request(urlString, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: nil).response { (response) in
             if !self.checkData(data: response) {
                 errorHandler(response.error)
                 return

@@ -8,7 +8,9 @@
 
 import Foundation
 
-
 extension Notification.Name {
     static let ConfigurationDone = Notification.Name(rawValue: "ConfigurationDone")
+    static let DidSearch = Notification.Name(rawValue: "DidSearch")
+    static let TagDidSearch = Notification.Name(rawValue: "TagDidSearch")
+
 }

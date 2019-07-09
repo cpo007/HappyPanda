@@ -8,6 +8,7 @@
 
 import UIKit
 import ESTabBarController_swift
+import ViewDeck
 
 
 class TabBarController: BaseTabBarController {
@@ -23,9 +24,11 @@ class TabBarController: BaseTabBarController {
     func customRemindStyle() {
         let v1 = R.storyboard.main.corridorsController()!
         let v2 = R.storyboard.main.trajectoryController()!
-        v1.tabBarItem = ESTabBarItem.init(title: "回廊", image: nil, selectedImage: nil)
+        let deck = IIViewDeckController.init(center: v1, rightViewController: nil)
+
+        deck.tabBarItem = ESTabBarItem.init(title: "回廊", image: nil, selectedImage: nil)
         v2.tabBarItem = ESTabBarItem.init(title: "轨迹", image: nil, selectedImage: nil)
 
-        viewControllers = [v1, v2]
+        viewControllers = [deck, v2]
     }
 }

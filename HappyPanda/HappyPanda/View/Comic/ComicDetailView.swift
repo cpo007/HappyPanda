@@ -20,8 +20,11 @@ class ComicDetailView: UIView {
     private var placeholder: UIImage?
 
     var buttonDidClickBlock:((_ sender: UIButton)->())?
-    
+    var tagLabelDidClick:((_ tagStr: String)->())?
+
     var data: GMetaModel?
+    
+    var tagDict = [String : [String]]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -70,15 +73,18 @@ class ComicDetailView: UIView {
     
     func initView(data: GMetaModel) -> CGFloat? {
         
-        thumb.sd_setImage(with: URL.init(string: data.thumb ?? ""), placeholderImage: placeholder, options: SDWebImageOptions.handleCookies) { [weak self](image, error, type, url) in
-            if error != nil {
-                debugPrint(error)
-                return
+        if data.thumb != nil {
+            thumb.sd_setImage(with: URL.init(string: data.thumb!), placeholderImage: placeholder, options: SDWebImageOptions.handleCookies) { [weak self](image, error, type, url) in
+                if error != nil {
+                    debugPrint(error ?? "")
+                    return
+                }
+                self?.thumb.image = image
             }
-            self?.thumb.image = image
         }
 
         let tagDict = getTagsDict(tags: data.tags)
+        self.tagDict = tagDict
         
         let space: CGFloat = 0
         let tagViewWidth = tagsView.frame.width - 80
@@ -125,6 +131,8 @@ class ComicDetailView: UIView {
                 tagLabel.text = tagStr
                 tagLabel.textAlignment = .center
                 tagLabel.textColor = Color.White
+                tagLabel.tag = viewIndex
+                
                 let _ = tagLabel.addOnClickListener(target: self, action: #selector(tagDidClick(tap:)))
                 
                 tagView.addSubview(tagLabel)
@@ -159,7 +167,25 @@ class ComicDetailView: UIView {
     @objc private func tagDidClick(tap: UIGestureRecognizer){
         guard let label = tap.view as? UILabel else { return }
         
-        debugPrint(label.text ?? "")
+        guard var tagStr = label.text else { return }
+        
+        let cs = tagStr.filter { (c) -> Bool in return c == " " }
+        if !cs.isEmpty {
+            tagStr = "\"\(tagStr)$\""
+        } else {
+            tagStr = "\(tagStr)$"
+        }
+        
+        var index = 0
+        for(k,_) in tagDict {
+            if index == label.tag {
+                debugPrint("\(k):\(tagStr)")
+                tagStr = "\(k):" + tagStr
+                tagLabelDidClick?(tagStr)
+                return
+            }
+            index+=1
+        }
         
     }
     

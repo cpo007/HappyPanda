@@ -18,48 +18,61 @@ class HTMLUtils: NSObject {
         let gMetaModel = GMetaModel()
         
         for n in node.css("td") {
-            
-            if n.className == "itdc" {
-                for a in n.css("img"){
-                    gMetaModel.category = a["alt"]
+            if n.className == "gl1c glcat" {
+                for a in n.css("div"){
+                    gMetaModel.category = a.text
                 }
             }
             
-            if n.className == "itd" {
-                if n["style"] == nil {
-                    for a in n.css("a"){
-                        gMetaModel.title = a.content
-                        if let path = a["href"] {
-                            if path.hasPrefix(HPNeetWorking.gHead) {
-                                var a = path[HPNeetWorking.gHead.endIndex...]
-                                if a.hasSuffix("/") { a.removeLast()}
-                                let arr = a.components(separatedBy: "/")
-                                gMetaModel.gid = Int(arr.first ?? "0")
-                                gMetaModel.token = arr.last ?? ""
+            if n.className == "gl2c" {
+                for itd in n.css("div") {
+                    if itd.className == "glthumb" {
+                        for img in itd.css("img") {
+                            if let imgsrc = img["data-src"], !imgsrc.isEmpty {
+                                gMetaModel.thumb = imgsrc
+                            } else {
+                                gMetaModel.thumb = img["src"]
                             }
+                            
+                            if let title = img["title"], !title.isEmpty {
+                                gMetaModel.title = title
+                            }
+                            
                         }
-                        
                     }
-                } else {
-                    gMetaModel.uploadtime = n.content
+                    if itd.className == "glnew" {
+                        gMetaModel.uploadtime = n.text
+                    }
                 }
             }
             
-            if n.className == "itu" {
+            if n.className == "gl3c glname" {
                 for a in n.css("a"){
-
-                    gMetaModel.uploader = a.content
+                    if let path = a["href"] {
+                        if path.hasPrefix(HPNeetWorking.gHead) {
+                            var a = path[HPNeetWorking.gHead.endIndex...]
+                            if a.hasSuffix("/") { a.removeLast()}
+                            let arr = a.components(separatedBy: "/")
+                            gMetaModel.gid = Int(arr.first ?? "0") ?? 0
+                            gMetaModel.token = arr.last ?? ""
+                        }
+                    }
                 }
             }
+            
+            if n.className == "gl4c glhide" {
+                for a in n.css("a"){
+                    gMetaModel.uploader = a.text
+                }
+            }
+
         }
         return gMetaModel
     }
 
-    
-    //通过解析详情页的HTML补完GMetaModel的数据,传入GMetaModel
-    static func getGMetaDetail(gMeta: GMetaModel, node: XMLElement) -> GMetaModel {
+    //获取预览图
+    static func getGMetaPic(node: XMLElement) -> String? {
         for div in node.css("div") {
-            
             //获取封面图节点
             if div["id"] == "gd1" {
                 for subdiv in div.css("div"){
@@ -69,11 +82,33 @@ class HTMLUtils: NSObject {
                         if str.hasPrefix("url(") {
                             var thumb = str["url(".endIndex...]
                             if thumb.hasSuffix(")") { thumb.removeLast()}
-                            gMeta.thumb = String(thumb)
+                            return String(thumb)
                         }
                     }
                 }
             }
+        }
+        return nil
+    }
+
+    //通过解析详情页的HTML补完GMetaModel的数据,传入GMetaModel
+    static func getGMetaDetail(gMeta: GMetaModel, node: XMLElement) -> GMetaModel {
+        for div in node.css("div") {
+            
+            //获取封面图节点
+//            if div["id"] == "gd1" {
+//                for subdiv in div.css("div"){
+//                    let style = subdiv["style"]
+//                    let arr = (style ?? "").components(separatedBy: " ")
+//                    for str in arr {
+//                        if str.hasPrefix("url(") {
+//                            var thumb = str["url(".endIndex...]
+//                            if thumb.hasSuffix(")") { thumb.removeLast()}
+//                            gMeta.thumb = String(thumb)
+//                        }
+//                    }
+//                }
+//            }
             
             //获取标题节点
             if div["id"] == "gd2" {
@@ -104,7 +139,7 @@ class HTMLUtils: NSObject {
             
             //获取Tag节点
             if div["id"] == "gd4" {
-                gMeta.tags.removeAll()
+                gMeta.tagsL.removeAll()
                 for tr in div.css("tr") {
                     let tds = tr.css("td")
                     var tagStr = ""
@@ -116,7 +151,7 @@ class HTMLUtils: NSObject {
                             tagStr.append(a.content ?? "")
                         }
                     }
-                    gMeta.tags.append(tagStr)
+                    gMeta.tagsL.append(tagStr)
                 }
             }
         }
@@ -140,13 +175,13 @@ class HTMLUtils: NSObject {
                 
                 let b = gidAndPageNum.components(separatedBy: "-")
                 model.galleryId = b.first
-                model.page_token = arr.first ?? ""
                 model.pageNumber = Int(b.last ?? "0") ?? 0
+                model.page_token = "\(arr.first ?? "")/\(model.galleryId ?? "")-\(model.pageNumber)"
+//                model.page_token = arr.first ?? ""
                 print(path)
                 sDatas.append(model)
             }
         }
-        
         sDatas.sort { $0.pageNumber < $1.pageNumber }
         return sDatas
     }

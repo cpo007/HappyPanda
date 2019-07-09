@@ -8,14 +8,16 @@
 
 import UIKit
 import Kingfisher
+import SDWebImage
 
 class ReadCell: UICollectionViewCell {
     
     private var placeholder: UIImage?
+    
+    var imageRequestSuccess: ((_ image: UIImage, _ sData: SDataModel)->())?
 
-    lazy var imageView: UIImageView = {
-        let iw = UIImageView()
-        iw.backgroundColor = RandomColor()
+    lazy var imageView: ReadImageView = {
+        let iw = ReadImageView()
         iw.contentMode = .scaleAspectFit
         iw.clipsToBounds = true
         return iw
@@ -37,11 +39,9 @@ class ReadCell: UICollectionViewCell {
         imageView.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
     
-    var imgUrl: String? {
-        didSet {
-            guard let imgUrl = imgUrl else { return }
-            imageView.image = nil
-            imageView.kf.setImage(with: URL.init(string: imgUrl), placeholder: placeholder)
-        }
+    func setImg(imgUrl: String, sData: SDataModel, fileName: String?,successCallBack:imageRequestSuccess?) {
+        
+        imageView.setImg(imgUrl: imgUrl, sData: sData, fileName: fileName, successCallBack: successCallBack)
     }
+    
 }

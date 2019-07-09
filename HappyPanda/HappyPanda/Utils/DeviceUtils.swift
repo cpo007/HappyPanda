@@ -87,25 +87,6 @@ public struct DeviceUtils {
         return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone
     }
     
-    public static func frontCameraAvailable() -> Bool {
-        let videoDevices = AVCaptureDevice.devices(for: AVMediaType.video)
-        for device in videoDevices {
-            if (device as AnyObject).position == .front {
-                return true
-            }
-        }
-        return false
-    }
-    
-    public static func backCameraAvailable() -> Bool {
-        let videoDevices = AVCaptureDevice.devices(for: AVMediaType.video)
-        for device in videoDevices {
-            if (device as AnyObject).position == .back {
-                return true
-            }
-        }
-        return false
-    }
     
     public static func isCameraAuthorized() -> Bool {
         return AVCaptureDevice.authorizationStatus(for: AVMediaType.video) == .authorized

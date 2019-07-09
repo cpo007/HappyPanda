@@ -10,26 +10,83 @@ import UIKit
 
 public struct ImageUtils {
     
-    static func loadNoteImageWithName(imageName: String) -> UIImage! {
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let imagePath = documentsPath.appending("/\(imageName)")
+    static let documentName = "Comic"
+    
+
+    static func createComicDocument(){
+        var documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         
-        if FileManager.default.fileExists(atPath: imagePath) {
-            return UIImage(data: NSData(contentsOfFile: imagePath)! as Data)!
+        let fileManager = FileManager.default
+        
+        documentsPath.append("/\(ImageUtils.documentName)")
+        if !fileManager.fileExists(atPath: documentsPath) {
+            do {
+                try fileManager.createDirectory(atPath: documentsPath, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                debugPrint("创建漫画文件夹时发生错误:\(error)")
+            }
+        }
+        
+    }
+    
+    
+    static func getImage(fileName: String, imageName: String) -> UIImage? {
+        var documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        documentsPath.append("/\(ImageUtils.documentName)")
+        documentsPath.append("/\(fileName.replacingOccurrences(of: "/", with: "-"))")
+
+        documentsPath.append("/\(imageName)")
+        if FileManager.default.fileExists(atPath: documentsPath) {
+            do {
+                let fileUrl = URL.init(fileURLWithPath: documentsPath)
+                let imgData = try Data.init(contentsOf: fileUrl)
+                return UIImage.init(data: imgData)
+            } catch {
+                debugPrint(error)
+                return nil
+            }
         }
         else {
             return nil
         }
     }
     
-    static func saveImage(image: UIImage, withName imageName: String!) {
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let imageData = UIImageJPEGRepresentation(image, 1.0)
-        do {
-            try imageData?.write(to: URL.init(string: documentsPath.appending("/\(imageName)"))!, options: Data.WritingOptions.atomic)
-        } catch {
-            debugPrint(error)
+    static func saveImage(image: UIImage,withFileName fileName: String, withName imageName: String) {
+        var documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        
+        let fileManager = FileManager.default
+        
+        documentsPath.append("/\(ImageUtils.documentName)")
+        
+        documentsPath.append("/\(fileName.replacingOccurrences(of: "/", with: "-"))")
+        
+        if fileManager.fileExists(atPath: documentsPath) {
+            let imageData = UIImageJPEGRepresentation(image, 1.0)
+            do {
+                let fileUrl = URL.init(fileURLWithPath: documentsPath.appending("/\(imageName)"))
+                
+                if !fileManager.fileExists(atPath: documentsPath.appending("/\(imageName)")) {
+                    debugPrint("本地存储图片，位于\(documentsPath)")
+                    try imageData?.write(to: fileUrl, options: Data.WritingOptions.atomic)
+                }
+                
+            } catch {
+                debugPrint(error)
+            }
+        } else {
+            do {
+                try fileManager.createDirectory(atPath: documentsPath, withIntermediateDirectories: true, attributes: nil)
+                let imageData = UIImageJPEGRepresentation(image, 0.7)
+                do {
+                    let fileUrl = URL.init(fileURLWithPath: documentsPath.appending("/\(imageName)"))
+                    print(fileUrl)
+                    try imageData?.write(to: fileUrl, options: Data.WritingOptions.atomic)
+                } catch {
+                    debugPrint(error)
+                }
+            } catch {
+                debugPrint(error)
+            }
         }
-//        imageData?.writeToFile(documentsPath.stringByAppendingString("/\(imageName)"), atomically: true)
     }
 }

@@ -39,11 +39,28 @@
 		384B1AE620BB93B0004A696D /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B1AE520BB93B0004A696D /* SearchView.swift */; };
 		38A743FA21141C95006BC7D6 /* DeviceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A743F921141C95006BC7D6 /* DeviceUtils.swift */; };
 		38A743FC21158804006BC7D6 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A743FB21158804006BC7D6 /* ImageUtils.swift */; };
+		38A74409211835F1006BC7D6 /* Spark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A74400211835F1006BC7D6 /* Spark.swift */; };
+		38A7440A211835F1006BC7D6 /* FaveIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A74401211835F1006BC7D6 /* FaveIcon.swift */; };
+		38A7440B211835F1006BC7D6 /* FaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A74402211835F1006BC7D6 /* FaveButton.swift */; };
+		38A7440C211835F1006BC7D6 /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A74403211835F1006BC7D6 /* Ring.swift */; };
+		38A7440D211835F1006BC7D6 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A74405211835F1006BC7D6 /* Geometry.swift */; };
+		38A7440E211835F1006BC7D6 /* Easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A74406211835F1006BC7D6 /* Easing.swift */; };
+		38A7440F211835F1006BC7D6 /* Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A74407211835F1006BC7D6 /* Init.swift */; };
+		38A74410211835F1006BC7D6 /* Constraints+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A74408211835F1006BC7D6 /* Constraints+.swift */; };
+		38A74412211D2487006BC7D6 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A74411211D2487006BC7D6 /* SearchController.swift */; };
+		38A778E3228E9B4000741B5C /* HPLocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A778E2228E9B4000741B5C /* HPLocalStorageManager.swift */; };
+		38AAA511212BEAFE00AAA99B /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AAA510212BEAFE00AAA99B /* SettingController.swift */; };
+		38AAA513212BF41000AAA99B /* SettingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AAA512212BF41000AAA99B /* SettingUtils.swift */; };
+		38AAA515212BF90500AAA99B /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AAA514212BF90500AAA99B /* SettingModel.swift */; };
+		38AAA519212C0F2000AAA99B /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AAA517212C0F2000AAA99B /* SettingCell.swift */; };
+		38AAA51A212C0F2000AAA99B /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38AAA518212C0F2000AAA99B /* SettingCell.xib */; };
 		38B685F020B0126000F543F6 /* HPNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B685EF20B0126000F543F6 /* HPNetWork.swift */; };
 		38E036AA20AD10BB00801A7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E036A920AD10BB00801A7C /* AppDelegate.swift */; };
 		38E036AF20AD10BB00801A7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E036AD20AD10BB00801A7C /* Main.storyboard */; };
 		38E036B120AD10BB00801A7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38E036B020AD10BB00801A7C /* Assets.xcassets */; };
 		38E036B420AD10BB00801A7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E036B220AD10BB00801A7C /* LaunchScreen.storyboard */; };
+		38F8F32F21C739360031ABBA /* ThumbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F8F32E21C739360031ABBA /* ThumbCell.swift */; };
+		38F8F33121C8D6790031ABBA /* ReadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F8F33021C8D6790031ABBA /* ReadImageView.swift */; };
 		749E61B29E48889C6894EF0E /* Pods_HappyPanda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC96B17871C430DE9234157 /* Pods_HappyPanda.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +98,21 @@
 		384B1AE520BB93B0004A696D /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		38A743F921141C95006BC7D6 /* DeviceUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUtils.swift; sourceTree = "<group>"; };
 		38A743FB21158804006BC7D6 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
+		38A74400211835F1006BC7D6 /* Spark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spark.swift; sourceTree = "<group>"; };
+		38A74401211835F1006BC7D6 /* FaveIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaveIcon.swift; sourceTree = "<group>"; };
+		38A74402211835F1006BC7D6 /* FaveButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaveButton.swift; sourceTree = "<group>"; };
+		38A74403211835F1006BC7D6 /* Ring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
+		38A74405211835F1006BC7D6 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
+		38A74406211835F1006BC7D6 /* Easing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Easing.swift; sourceTree = "<group>"; };
+		38A74407211835F1006BC7D6 /* Init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Init.swift; sourceTree = "<group>"; };
+		38A74408211835F1006BC7D6 /* Constraints+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Constraints+.swift"; sourceTree = "<group>"; };
+		38A74411211D2487006BC7D6 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchController.swift; path = ../../../../../Documents/SearchController.swift; sourceTree = "<group>"; };
+		38A778E2228E9B4000741B5C /* HPLocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPLocalStorageManager.swift; sourceTree = "<group>"; };
+		38AAA510212BEAFE00AAA99B /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
+		38AAA512212BF41000AAA99B /* SettingUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUtils.swift; sourceTree = "<group>"; };
+		38AAA514212BF90500AAA99B /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		38AAA517212C0F2000AAA99B /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		38AAA518212C0F2000AAA99B /* SettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
 		38B685EF20B0126000F543F6 /* HPNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPNetWork.swift; sourceTree = "<group>"; };
 		38E036A620AD10BB00801A7C /* HappyPanda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyPanda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E036A920AD10BB00801A7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +120,8 @@
 		38E036B020AD10BB00801A7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38E036B320AD10BB00801A7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38E036B520AD10BB00801A7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38F8F32E21C739360031ABBA /* ThumbCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbCell.swift; sourceTree = "<group>"; };
+		38F8F33021C8D6790031ABBA /* ReadImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadImageView.swift; sourceTree = "<group>"; };
 		502A320432BE3AB2FBA5A030 /* Pods-HappyPanda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyPanda.release.xcconfig"; path = "Pods/Target Support Files/Pods-HappyPanda/Pods-HappyPanda.release.xcconfig"; sourceTree = "<group>"; };
 		6BC96B17871C430DE9234157 /* Pods_HappyPanda.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HappyPanda.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -116,6 +150,7 @@
 		38161BD120B2900C00956F17 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				38AAA516212C0F0C00AAA99B /* Setting */,
 				384B1ACC20B406E8004A696D /* Comic */,
 				384B1ABD20B2ABD0004A696D /* Configuration */,
 				384B1ADF20B7FE7B004A696D /* UReadTopBar.swift */,
@@ -126,6 +161,7 @@
 		38161BD220B2900C00956F17 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				38AAA50F212BEAE000AAA99B /* Setting */,
 				384B1AB820B29C0C004A696D /* Configuration */,
 				38161BEB20B2999C00956F17 /* Comic */,
 				38161BE620B294F900956F17 /* NavigationController.swift */,
@@ -141,6 +177,7 @@
 				384B1AD120B4F53E004A696D /* ComicDetailController.swift */,
 				38161BEE20B29A0F00956F17 /* TrajectoryController.swift */,
 				384B1AD920B7E526004A696D /* ReadViewController.swift */,
+				38A74411211D2487006BC7D6 /* SearchController.swift */,
 			);
 			path = Comic;
 			sourceTree = "<group>";
@@ -167,19 +204,78 @@
 			isa = PBXGroup;
 			children = (
 				384B1ADD20B7EE21004A696D /* ReadCell.swift */,
+				38F8F32E21C739360031ABBA /* ThumbCell.swift */,
 				384B1ACD20B40705004A696D /* ComicDetailCell.swift */,
 				384B1ACE20B40705004A696D /* ComicDetailCell.xib */,
 				384B1AD320B4F971004A696D /* ComicDetailView.swift */,
 				384B1AE120B8E91A004A696D /* ReadSettingBar.swift */,
 				384B1AE520BB93B0004A696D /* SearchView.swift */,
+				38F8F33021C8D6790031ABBA /* ReadImageView.swift */,
 			);
 			path = Comic;
+			sourceTree = "<group>";
+		};
+		38A743FE211835E3006BC7D6 /* Third */ = {
+			isa = PBXGroup;
+			children = (
+				38A743FF211835F1006BC7D6 /* FaveButton */,
+			);
+			path = Third;
+			sourceTree = "<group>";
+		};
+		38A743FF211835F1006BC7D6 /* FaveButton */ = {
+			isa = PBXGroup;
+			children = (
+				38A74400211835F1006BC7D6 /* Spark.swift */,
+				38A74401211835F1006BC7D6 /* FaveIcon.swift */,
+				38A74402211835F1006BC7D6 /* FaveButton.swift */,
+				38A74403211835F1006BC7D6 /* Ring.swift */,
+				38A74404211835F1006BC7D6 /* Helpers */,
+			);
+			path = FaveButton;
+			sourceTree = "<group>";
+		};
+		38A74404211835F1006BC7D6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				38A74405211835F1006BC7D6 /* Geometry.swift */,
+				38A74406211835F1006BC7D6 /* Easing.swift */,
+				38A74407211835F1006BC7D6 /* Init.swift */,
+				38A74408211835F1006BC7D6 /* Constraints+.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		38A778E1228E9B0D00741B5C /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				38A778E2228E9B4000741B5C /* HPLocalStorageManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		38AAA50F212BEAE000AAA99B /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				38AAA510212BEAFE00AAA99B /* SettingController.swift */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		38AAA516212C0F0C00AAA99B /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				38AAA517212C0F2000AAA99B /* SettingCell.swift */,
+				38AAA518212C0F2000AAA99B /* SettingCell.xib */,
+			);
+			name = Setting;
 			sourceTree = "<group>";
 		};
 		38B685E920B010D000F543F6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				384B1AD720B4FB09004A696D /* ViewExtension.swift */,
+				384B1AC620B3C07A004A696D /* NotificationNameExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -216,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				384B1AC820B3ED9A004A696D /* GModel.swift */,
+				38AAA514212BF90500AAA99B /* SettingModel.swift */,
 				384B1ACA20B40123004A696D /* BaseModel.swift */,
 			);
 			path = Model;
@@ -225,11 +322,11 @@
 			isa = PBXGroup;
 			children = (
 				384B1ABB20B2AB89004A696D /* BaseUtils.swift */,
-				384B1AC620B3C07A004A696D /* NotificationNameExtension.swift */,
 				384B1AE320B93E6C004A696D /* ToastUtil.swift */,
 				382C127C21102AB2002FBC22 /* HTMLUtils.swift */,
 				38A743F921141C95006BC7D6 /* DeviceUtils.swift */,
 				38A743FB21158804006BC7D6 /* ImageUtils.swift */,
+				38AAA512212BF41000AAA99B /* SettingUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -255,6 +352,7 @@
 		38E036A820AD10BB00801A7C /* HappyPanda */ = {
 			isa = PBXGroup;
 			children = (
+				38A778E1228E9B0D00741B5C /* Manager */,
 				38161BD120B2900C00956F17 /* View */,
 				38161BD220B2900C00956F17 /* ViewControllers */,
 				38B685EC20B010D000F543F6 /* Base */,
@@ -262,6 +360,7 @@
 				38B685ED20B010D000F543F6 /* Model */,
 				38B685EA20B010D000F543F6 /* NetWord */,
 				38B685EB20B010D000F543F6 /* StoryBoard */,
+				38A743FE211835E3006BC7D6 /* Third */,
 				38B685EE20B010D000F543F6 /* Utils */,
 				38E036A920AD10BB00801A7C /* AppDelegate.swift */,
 				38161BCF20B28F9100956F17 /* R.generated.swift */,
@@ -343,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38E036B420AD10BB00801A7C /* LaunchScreen.storyboard in Resources */,
+				38AAA51A212C0F2000AAA99B /* SettingCell.xib in Resources */,
 				38E036B120AD10BB00801A7C /* Assets.xcassets in Resources */,
 				384B1AD020B40705004A696D /* ComicDetailCell.xib in Resources */,
 				38E036AF20AD10BB00801A7C /* Main.storyboard in Resources */,
@@ -398,12 +498,13 @@
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLiteRepairKit/sqliterk.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyDB/SwiftyDB.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/TinySQLite/TinySQLite.framework",
-				"${BUILT_PRODUCTS_DIR}/sqlite3/sqlite3.framework",
+				"${BUILT_PRODUCTS_DIR}/ViewDeck/ViewDeck.framework",
+				"${BUILT_PRODUCTS_DIR}/WCDB.swift/WCDBSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -415,12 +516,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqliterk.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TinySQLite.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqlite3.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewDeck.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WCDBSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqlcipher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -435,7 +537,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				384B1ABA20B29E04004A696D /* ConfigurationController.swift in Sources */,
+				38A7440B211835F1006BC7D6 /* FaveButton.swift in Sources */,
+				38A74410211835F1006BC7D6 /* Constraints+.swift in Sources */,
 				38161BE420B294DF00956F17 /* BaseNavigationController.swift in Sources */,
+				38A778E3228E9B4000741B5C /* HPLocalStorageManager.swift in Sources */,
+				38AAA513212BF41000AAA99B /* SettingUtils.swift in Sources */,
 				384B1AC720B3C07A004A696D /* NotificationNameExtension.swift in Sources */,
 				38161BE720B294F900956F17 /* TabBarController.swift in Sources */,
 				384B1ABC20B2AB89004A696D /* BaseUtils.swift in Sources */,
@@ -443,13 +549,17 @@
 				38161BDE20B2938A00956F17 /* BaseViewController.swift in Sources */,
 				38161BEF20B29A0F00956F17 /* TrajectoryController.swift in Sources */,
 				38161BE820B294F900956F17 /* NavigationController.swift in Sources */,
+				38AAA511212BEAFE00AAA99B /* SettingController.swift in Sources */,
 				384B1AD420B4F971004A696D /* ComicDetailView.swift in Sources */,
+				38A7440D211835F1006BC7D6 /* Geometry.swift in Sources */,
 				384B1AE620BB93B0004A696D /* SearchView.swift in Sources */,
 				38161BED20B299F000956F17 /* CorridorsController.swift in Sources */,
 				38E036AA20AD10BB00801A7C /* AppDelegate.swift in Sources */,
+				38F8F32F21C739360031ABBA /* ThumbCell.swift in Sources */,
 				38A743FA21141C95006BC7D6 /* DeviceUtils.swift in Sources */,
 				384B1AC920B3ED9A004A696D /* GModel.swift in Sources */,
 				384B1AC120B2C220004A696D /* CookiesRemoveView.swift in Sources */,
+				38A7440A211835F1006BC7D6 /* FaveIcon.swift in Sources */,
 				38B685F020B0126000F543F6 /* HPNetWork.swift in Sources */,
 				384B1ACF20B40705004A696D /* ComicDetailCell.swift in Sources */,
 				38161BD020B28F9200956F17 /* R.generated.swift in Sources */,
@@ -459,11 +569,19 @@
 				384B1AD220B4F53E004A696D /* ComicDetailController.swift in Sources */,
 				384B1ADC20B7E73E004A696D /* HPRefresh.swift in Sources */,
 				384B1AC320B2CA91004A696D /* ShowWebView.swift in Sources */,
+				38A74409211835F1006BC7D6 /* Spark.swift in Sources */,
 				384B1AE420B93E6C004A696D /* ToastUtil.swift in Sources */,
+				38A74412211D2487006BC7D6 /* SearchController.swift in Sources */,
+				38A7440C211835F1006BC7D6 /* Ring.swift in Sources */,
+				38AAA515212BF90500AAA99B /* SettingModel.swift in Sources */,
+				38AAA519212C0F2000AAA99B /* SettingCell.swift in Sources */,
 				384B1AD820B4FB09004A696D /* ViewExtension.swift in Sources */,
 				384B1ACB20B40123004A696D /* BaseModel.swift in Sources */,
+				38F8F33121C8D6790031ABBA /* ReadImageView.swift in Sources */,
+				38A7440F211835F1006BC7D6 /* Init.swift in Sources */,
 				38161BE020B293D200956F17 /* Color.swift in Sources */,
 				384B1ADA20B7E526004A696D /* ReadViewController.swift in Sources */,
+				38A7440E211835F1006BC7D6 /* Easing.swift in Sources */,
 				384B1ABF20B2AC09004A696D /* PandaView.swift in Sources */,
 				384B1AE020B7FE7B004A696D /* UReadTopBar.swift in Sources */,
 				38A743FC21158804006BC7D6 /* ImageUtils.swift in Sources */,

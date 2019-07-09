@@ -9,34 +9,60 @@
 import UIKit
 import Kanna
 import SwiftyJSON
+import ViewDeck
 
 class CorridorsController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    private var searchView: SearchView!
     
     var gDataArray = [GDataModel]()
     var gMetaArray = [GMetaModel]()
     var page = 0
+    var searchStr: String?
+    var isSearchTag = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configUI()
         tableView.uHead.beginRefreshing()
         view.backgroundColor = Color.ace
         tableView.backgroundColor = UIColor.clear
 
         NotificationCenter.default.addObserver(self, selector: #selector(configurationDone), name: NSNotification.Name.ConfigurationDone, object: nil)
-        
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(didSearch(notification:)), name: NSNotification.Name.DidSearch, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didSearchTag(notification:)), name: NSNotification.Name.TagDidSearch, object: nil)
+
     }
     
     override func configUI() {
         super.configUI()
         setNeedNavigationBar(title: "回廊", needBackButton: false)
-        let rightBtn = setNavRightButton(title: "搜索")
-        rightBtn.addTarget(self, action: #selector(searchButtonDidClick), for: UIControlEvents.touchUpInside)
+        setSliderView()
+        
+        let topView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 200, height: 44))
+        
+        let searchBtn = UIButton.init(type: UIButtonType.custom)
+        searchBtn.setImage(R.image.icon_search_white(), for: UIControlState.normal)
+        searchBtn.size = CGSize.init(width: 30, height: 30)
+        searchBtn.addTarget(self, action: #selector(searchButtonDidClick), for: UIControlEvents.touchUpInside)
+        
+        let resetBtn = UIButton.init(type: UIButtonType.custom)
+        resetBtn.setImage(R.image.icon_reset(), for: UIControlState.normal)
+        resetBtn.addTarget(self, action: #selector(resetButtonDidClick), for: UIControlEvents.touchUpInside)
+        
+        setNavRightView(rightView: topView)
+        topView.addSubview(searchBtn)
+        topView.addSubview(resetBtn)
+        
+        searchBtn.snp.makeConstraints { (make) in
+            make.centerY.equalTo(topView)
+            make.trailing.equalTo(topView).offset(-15)
+        }
+        
+        resetBtn.snp.makeConstraints { (make) in
+            make.centerY.equalTo(topView)
+            make.trailing.equalTo(searchBtn.snp.leading).offset(-15)
+        }
         
         tableView.register(R.nib.comicDetailCell)
         tableView.separatorStyle = .none
@@ -53,35 +79,46 @@ class CorridorsController: BaseViewController {
         }
         
         (tableView.uHead as! URefreshHeader).stateLabel.textColor = Color.White
+        (tableView.uHead as! URefreshHeader).lastUpdatedTimeLabel.isHidden = true
         (tableView.uFoot as! URefreshAutoFooter).stateLabel.textColor = Color.White
-        
-        
 
-        searchView = SearchView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight))
-        view.addSubview(searchView)
-        
-        searchView.snp.makeConstraints { (make) in
-            make.size.equalTo(CGSize.init(width: kScreenWidth, height: kScreenHeight))
-            make.top.equalTo(view.bottom)
-            make.centerX.equalTo(view)
+    }
+    
+    private func setSliderView(){
+        if viewDeckController?.rightViewController == nil {
+            viewDeckController?.rightViewController = R.storyboard.main.searchController()!
+            self.viewDeckController?.delegate = self
+
         }
     }
     
     private func requestEXMain(page: Int){
         
         var urlString = HPNeetWorking.baseUrl
-        if page > 0 {
-            urlString.append("/?page=\(page)")
+        urlString.append("/?page=\(page)")
+        
+        if searchStr != nil {
+            let str = "&f_search=" + searchStr!.replacingOccurrences(of: " ", with: "+")
+            urlString.append(str)
+            urlString.append("&f_apply=Apply+Filter")
         }
+        urlString = urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        print(urlString)
+        
         HPNeetWorking.shareTools.requestHtml(method: .post, urlString: urlString, completionHandler: { [weak self](html) in
+            
             
             if let doc = try? HTML(html: html, encoding: .utf8) {
                 
                 var gMetaArr = [GMetaModel]()
                 
-                for link in doc.css("tr") {
-                    guard let className = link.className, className.hasPrefix("gtr") else { continue }
-                    gMetaArr.append(HTMLUtils.getGMetaModel(node: link))
+                for table in doc.css("table") {
+                    if table.className == "itg gltc"{
+                        for node in table.css("tr") {
+                            if node.content == "PublishedTitleUploader" { continue }
+                            gMetaArr.append(HTMLUtils.getGMetaModel(node: node))
+                        }
+                    }
                 }
                 
                 if page >= 1 {
@@ -93,32 +130,6 @@ class CorridorsController: BaseViewController {
                 self?.tableView.reloadData()
                 page >= 1 ? self?.tableView.uFoot.endRefreshing() : self?.tableView.uHead.endRefreshing()
 
-                
-                
-//                var gMap = [GDataModel]()
-//
-//                for link in doc.css("a") {
-//                    if let path = link["href"] {
-//                        if path.hasPrefix(HPNeetWorking.gHead) {
-//                            var a = path[HPNeetWorking.gHead.endIndex...]
-//                            if a.hasSuffix("/") { a.removeLast()}
-//                            let arr = a.components(separatedBy: "/")
-//                            let model = GDataModel.init()
-//                            model.galleryId = arr.first ?? ""
-//                            model.galleryToken = arr.last ?? ""
-//                            gMap.append(model)
-//                        }
-//                    }
-//                }
-//
-//                if page >= 1 {
-//                    self?.gDataArray+=gMap
-//                } else {
-//                    self?.gDataArray = gMap
-//                }
-//
-//                self?.requestComicDetail(gDataArray: gMap, page: page)
-                
             } else {
                 page >= 1 ? self?.tableView.uFoot.endRefreshing() : self?.tableView.uHead.endRefreshing()
                 let vc = R.storyboard.main.configurationController()!
@@ -131,34 +142,40 @@ class CorridorsController: BaseViewController {
         }
     }
     
-    
-    private func requestComicDetail(gDataArray:[GDataModel],page: Int){
-        
-        
-        HPNeetWorking.shareTools.requestComicDetail(gDataArray: gDataArray, completionHandler: { (data) in
-            
-            page >= 1 ? self.tableView.uFoot.endRefreshing() : self.tableView.uHead.endRefreshing()
-            if let jsonString = try? JSON.init(data: data) {
-                if let data = [GMetaModel].deserialize(from: jsonString.description, designatedPath: "gmetadata") {
-                    if page >= 1 {
-                        self.gMetaArray+=(data as! [GMetaModel])
-                    } else {
-                        self.gMetaArray=(data as! [GMetaModel])
-                    }
-                    self.tableView.reloadData()
-                }
-            }
-           
-            
-        }) { (error) in
-            page >= 1 ? self.tableView.uFoot.endRefreshing() : self.tableView.uHead.endRefreshing()
-        }
+    @objc private func configurationDone(){
+        tableView.uHead.beginRefreshing()
     }
     
+    @objc private func didSearch(notification:Notification) {
+        self.viewDeckController?.closeSide(true)
+        guard let detail = notification.object as? [String:Any] else { return }
+        
+        guard let search = detail["search"] as? String, let tags = detail["tags"] as? [String:String] else { return }
+        if search.isEmpty { return }
+        isSearchTag = false
+        var searchStr = "&f_search=" + search.replacingOccurrences(of: " ", with: "+")
+        
+        var tagsStr = ""
+        
+        for (k,v) in tags {
+            tagsStr.append("&")
+            tagsStr.append(k)
+            tagsStr.append("=")
+            tagsStr.append(v)
+        }
+        
+        let endStr = tagsStr + searchStr
+        searchStr = endStr
+        self.searchStr = searchStr
+        tableView.uHead.beginRefreshing()
+    }
     
-    
-    @objc private func configurationDone(){
-        requestEXMain(page: 0)
+    @objc private func didSearchTag(notification:Notification) {
+        guard let tagStr = notification.object as? String else { return }
+        isSearchTag = true
+        self.searchStr = tagStr
+        tableView.uHead.beginRefreshing()
+        
     }
 
 
@@ -167,14 +184,20 @@ class CorridorsController: BaseViewController {
     }
     
     @objc private func searchButtonDidClick(){
-        
-        searchView.snp.updateConstraints { (make) in
-            make.top.equalTo(view)
-        }
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
+        self.viewDeckController?.open(IIViewDeckSide.right, animated: true)
+        if viewDeckController?.rightViewController is SearchController,isSearchTag {
+            (viewDeckController?.rightViewController as! SearchController).searchStr = searchStr
         }
     }
+    
+    @objc private func resetButtonDidClick(){
+        searchStr = nil
+        tableView.uHead.beginRefreshing()
+        if viewDeckController?.rightViewController is SearchController {
+            (viewDeckController?.rightViewController as! SearchController).clear()
+        }
+    }
+    
 }
 
 
@@ -203,6 +226,18 @@ extension CorridorsController: UITableViewDelegate,UITableViewDataSource {
         let vc = R.storyboard.main.comicDetailController()!
         vc.gMetaModel = model
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+}
+
+extension CorridorsController: IIViewDeckControllerDelegate {
+    
+    func viewDeckController(_ viewDeckController: IIViewDeckController, willOpen side: IIViewDeckSide) -> Bool {
+        
+        if viewDeckController.rightViewController is SearchController,isSearchTag {
+            (viewDeckController.rightViewController as! SearchController).searchStr = searchStr
+        }
+        return true
     }
     
 }

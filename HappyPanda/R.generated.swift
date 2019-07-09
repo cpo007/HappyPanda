@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 8 images.
+  /// This `R.image` struct is generated, and contains static references to 17 images.
   struct image {
     /// Image `ic_back`.
     static let ic_back = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_back")
@@ -41,8 +41,26 @@ struct R: Rswift.Validatable {
     static let icon_backbtn_background = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_backbtn_background")
     /// Image `icon_cookies`.
     static let icon_cookies = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_cookies")
+    /// Image `icon_fail_type`.
+    static let icon_fail_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_fail_type")
+    /// Image `icon_heart`.
+    static let icon_heart = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_heart")
+    /// Image `icon_loading_type`.
+    static let icon_loading_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_loading_type")
     /// Image `icon_readbar_background`.
     static let icon_readbar_background = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_readbar_background")
+    /// Image `icon_reset`.
+    static let icon_reset = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_reset")
+    /// Image `icon_search_delete`.
+    static let icon_search_delete = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_search_delete")
+    /// Image `icon_search_white`.
+    static let icon_search_white = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_search_white")
+    /// Image `icon_search`.
+    static let icon_search = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_search")
+    /// Image `icon_star`.
+    static let icon_star = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_star")
+    /// Image `icon_start_type`.
+    static let icon_start_type = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_start_type")
     /// Image `icon_tag`.
     static let icon_tag = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tag")
     /// Image `icon_upload_time`.
@@ -70,9 +88,54 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.icon_cookies, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "icon_fail_type", bundle: ..., traitCollection: ...)`
+    static func icon_fail_type(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_fail_type, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_heart", bundle: ..., traitCollection: ...)`
+    static func icon_heart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_heart, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_loading_type", bundle: ..., traitCollection: ...)`
+    static func icon_loading_type(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_loading_type, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "icon_readbar_background", bundle: ..., traitCollection: ...)`
     static func icon_readbar_background(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.icon_readbar_background, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_reset", bundle: ..., traitCollection: ...)`
+    static func icon_reset(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_reset, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_search", bundle: ..., traitCollection: ...)`
+    static func icon_search(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_search, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_search_delete", bundle: ..., traitCollection: ...)`
+    static func icon_search_delete(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_search_delete, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_search_white", bundle: ..., traitCollection: ...)`
+    static func icon_search_white(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_search_white, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_star", bundle: ..., traitCollection: ...)`
+    static func icon_star(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_star, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_start_type", bundle: ..., traitCollection: ...)`
+    static func icon_start_type(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_start_type, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "icon_tag", bundle: ..., traitCollection: ...)`
@@ -93,23 +156,32 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
   struct nib {
     /// Nib `ComicDetailCell`.
     static let comicDetailCell = _R.nib._ComicDetailCell()
+    /// Nib `SettingCell`.
+    static let settingCell = _R.nib._SettingCell()
     
     /// `UINib(name: "ComicDetailCell", in: bundle)`
     static func comicDetailCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.comicDetailCell)
     }
     
+    /// `UINib(name: "SettingCell", in: bundle)`
+    static func settingCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.settingCell)
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `ComicDetailCell`.
     static let comicDetailCell: Rswift.ReuseIdentifier<ComicDetailCell> = Rswift.ReuseIdentifier(identifier: "ComicDetailCell")
+    /// Reuse identifier `SettingCell`.
+    static let settingCell: Rswift.ReuseIdentifier<SettingCell> = Rswift.ReuseIdentifier(identifier: "SettingCell")
     
     fileprivate init() {}
   }
@@ -177,6 +249,20 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    struct _SettingCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = SettingCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "SettingCell"
+      let name = "SettingCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> SettingCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SettingCell
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
@@ -202,6 +288,8 @@ struct _R: Rswift.Validatable {
       let configurationController = StoryboardViewControllerResource<ConfigurationController>(identifier: "ConfigurationController")
       let corridorsController = StoryboardViewControllerResource<CorridorsController>(identifier: "CorridorsController")
       let name = "Main"
+      let searchController = StoryboardViewControllerResource<SearchController>(identifier: "SearchController")
+      let settingController = StoryboardViewControllerResource<SettingController>(identifier: "SettingController")
       let trajectoryController = StoryboardViewControllerResource<TrajectoryController>(identifier: "TrajectoryController")
       
       func comicDetailController(_: Void = ()) -> ComicDetailController? {
@@ -216,14 +304,26 @@ struct _R: Rswift.Validatable {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: corridorsController)
       }
       
+      func searchController(_: Void = ()) -> SearchController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: searchController)
+      }
+      
+      func settingController(_: Void = ()) -> SettingController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: settingController)
+      }
+      
       func trajectoryController(_: Void = ()) -> TrajectoryController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: trajectoryController)
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "icon_search_delete") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_search_delete' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "icon_search") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_search' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().trajectoryController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'trajectoryController' could not be loaded from storyboard 'Main' as 'TrajectoryController'.") }
         if _R.storyboard.main().comicDetailController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'comicDetailController' could not be loaded from storyboard 'Main' as 'ComicDetailController'.") }
         if _R.storyboard.main().configurationController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'configurationController' could not be loaded from storyboard 'Main' as 'ConfigurationController'.") }
+        if _R.storyboard.main().searchController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'searchController' could not be loaded from storyboard 'Main' as 'SearchController'.") }
+        if _R.storyboard.main().settingController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingController' could not be loaded from storyboard 'Main' as 'SettingController'.") }
         if _R.storyboard.main().corridorsController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'corridorsController' could not be loaded from storyboard 'Main' as 'CorridorsController'.") }
       }
       

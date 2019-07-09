@@ -108,6 +108,7 @@ extension UIView {
     
     func addOnLongClickListener(target: AnyObject, action: Selector) -> UILongPressGestureRecognizer {
         let gr = UILongPressGestureRecognizer(target: target, action: action)
+        gr.minimumPressDuration = 1
         isUserInteractionEnabled = true
         addGestureRecognizer(gr)
         return gr

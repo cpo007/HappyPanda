@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 import SDWebImage
+import Kanna
 
 
 class ComicDetailCell: UITableViewCell {
@@ -30,12 +31,16 @@ class ComicDetailCell: UITableViewCell {
     
     func loadData(gMetaModel: GMetaModel) {
         
-        thumb.sd_setImage(with: URL.init(string: gMetaModel.thumb ?? ""), placeholderImage: placeholder, options: SDWebImageOptions.handleCookies) { [weak self](image, error, type, url) in
-            if error != nil {
-                debugPrint(error!)
-                return
+        thumb.image = placeholder
+        
+        if gMetaModel.thumb != nil {
+            thumb.sd_setImage(with: URL.init(string: gMetaModel.thumb!), placeholderImage: placeholder, options: SDWebImageOptions.handleCookies) { [weak self](image, error, type, url) in
+                if error != nil {
+                    debugPrint(error!)
+                    return
+                }
+                self?.thumb.image = image
             }
-            self?.thumb.image = image
         }
         
         title.text = gMetaModel.title
@@ -52,6 +57,7 @@ class ComicDetailCell: UITableViewCell {
             formatter.dateFormat = "yyyy-MM-dd HH:mm"
             uploadTime.text = "upload time: " +  formatter.string(from: date)
         }
+        
     }
 
 }

@@ -9,6 +9,6 @@
 import UIKit
 import HandyJSON
 
-class BaseModel: HandyJSON {
-    required init () { }
+class BaseModel {
+    
 }
